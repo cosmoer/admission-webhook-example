@@ -1,5 +1,6 @@
 #!/bin/bash
 
+DOCKER_USER=acc
 : ${DOCKER_USER:? required}
 
 export GO111MODULE=on 
@@ -10,4 +11,4 @@ CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o admission-webhook-exa
 docker build --no-cache -t ${DOCKER_USER}/admission-webhook-example:v1 .
 rm -rf admission-webhook-example
 
-docker push ${DOCKER_USER}/admission-webhook-example:v1
+#docker push ${DOCKER_USER}/admission-webhook-example:v1

@@ -14,11 +14,10 @@ spec:
       labels:
         app: admission-webhook-example
     spec:
-      serviceAccount: admission-webhook-example-sa
       containers:
         - name: admission-webhook-example
-          image: cnych/admission-webhook-example:v1
-          imagePullPolicy: Always
+          image: docker.io/acc/admission-webhook-example:v1
+          imagePullPolicy: IfNotPresent
           args:
             - -tlsCertFile=/etc/webhook/certs/cert.pem
             - -tlsKeyFile=/etc/webhook/certs/key.pem
